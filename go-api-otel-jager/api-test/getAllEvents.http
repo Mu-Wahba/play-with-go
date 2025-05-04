@@ -1,0 +1,4 @@
+Get http://localhost:3000/events
+Content-Type: application/json
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndhZHNkaGJhQHcudyIsImV4cCI6MTc0MTA2NDIwNywidXNlcklEIjozfQ.6xKEIb1i7pF9cmPm8kD_oBegLz2AxkfokvgLKGPieKU

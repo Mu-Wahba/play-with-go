@@ -1,0 +1,11 @@
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InczQHcudyIsImV4cCI6MTc0NjM5NzIwMywidXNlcklEIjozfQ.Ctvkq6NznKBJR6-4E4TvNnH-bwYrS9VgdMQtQKNLW9M
+
+{
+    "name": " uvevvt 3",
+    "description": "uvntvcription",
+    "location": " u2 evt vation"
+}
+
+ 

@@ -1,0 +1,18 @@
+DELETE   http://localhost:3000/events/3/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyQHUudSIsImV4cCI6MTczMzI0Nzg5NywidXNlcklEIjo1fQ.55p_b5DvoX1SBBcJRsblNpi7eSqk1z3T36rX4lH_Dtw
+
+
+
+
+# [
+#   {
+#     "id": 1,
+#     "user_id": "5",
+#     "event_id": "2"
+#   },
+#   {
+#     "id": 2,
+#     "user_id": "5",
+#     "event_id": "3"
+#   }
+# ]

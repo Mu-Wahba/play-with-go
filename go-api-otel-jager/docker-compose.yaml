@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  golang-app:
+    build:
+      context: ./
+      dockerfile: api.dockerfile
+    environment:
+      - DATABASE_URL=postgres://user:password@postgres:5432/mydb?sslmode=disable
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=5775
+    depends_on:
+      - postgres
+      - jaeger
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=zaq
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data  # Persistent storage for PostgreSQL data
+    networks:
+      - app-network
+
+  jaeger:
+    build:
+      context: .
+      dockerfile: jaeger.dockerfile
+    # image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+      - SPAN_STORAGE_TYPE=badger
+      - BADGER_EPHEMERAL=false
+      - BADGER_DIRECTORY_VALUE=/badger/data
+      - BADGER_DIRECTORY_KEY=/badger/key
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC
+      - "4318:4318"    # OTLP HTTP
+    volumes:
+      - jaeger-storage:/badger # Using the named volume you defined
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local  # Persistent volume for PostgreSQL data
+  jaeger-storage:
+    driver: local  # Persistent volume for Jaeger's data

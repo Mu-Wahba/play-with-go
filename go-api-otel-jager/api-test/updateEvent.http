@@ -1,0 +1,13 @@
+
+PUT http://localhost:3000/event/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InczQHcudyIsImV4cCI6MTc0MTUzODQ3NSwidXNlcklEIjo1fQ.xbTMGQNwZ4Cxid7l2Zkyrsm__h_RRjNU9WaHO5L6nc8
+
+
+
+
+# Content-Type: application/json
+{
+    "name": "event 9",
+    "description": "event 9  description",
+    "location": "event 9  location updated"
+}
